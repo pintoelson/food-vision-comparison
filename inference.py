@@ -125,7 +125,7 @@ def get_confidence(logits: torch.Tensor) -> float:
     return confidence*100
 
 def predict_V0(processed_image):
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    device = "cpu"
     model = Food101_V0(3*224*224, 101, 1024).to(device)
     model.load_state_dict(torch.load('models/model_V0.pth'))
     model.eval()
