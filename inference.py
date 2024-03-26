@@ -126,12 +126,12 @@ def get_confidence(logits: torch.Tensor) -> float:
 
 def predict_V0(processed_image):
     device = "cpu"
-    model = Food101_V0(3*224*224, 101, 1024).to(device)
+    model = Food101_V0(3*224*224, 101, 1024)
     model.load_state_dict(torch.load('models/model_V0.pth'), map_location ='cpu')
     model.eval()
 
     with torch.inference_mode():
-        logits = model(torch.unsqueeze(processed_image, 0).to(device))
+        logits = model(torch.unsqueeze(processed_image, 0))
         confidence = get_confidence(logits)
         label = logits.argmax(dim=1)
         # print(label)
