@@ -139,7 +139,7 @@ def predict_V0(processed_image):
     
 
 def predict_V1(processed_image):
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    device = "cpu"
     model = Food101_V1(3, 32, 101).to(device)
     model.load_state_dict(torch.load('models/model_V1.pth'))
     model.eval()
