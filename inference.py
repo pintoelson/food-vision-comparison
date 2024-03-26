@@ -125,9 +125,9 @@ def get_confidence(logits: torch.Tensor) -> float:
     return confidence*100
 
 def predict_V0(processed_image):
-    device = "cpu"
+    # device = "cpu"
     model = Food101_V0(3*224*224, 101, 1024)
-    model.load_state_dict(torch.load('models/model_V0.pth'), map_location ='cpu')
+    model.load_state_dict(torch.load('models/model_V0.pth'), map_location =torch.load('cpu'))
     model.eval()
 
     with torch.inference_mode():
