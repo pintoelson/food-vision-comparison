@@ -13,6 +13,10 @@ import os
 def download_model(model):
     url = get_url(model)
     output = 'models/'
+    if os.path.exists(output):    
+        print('Models Folder Exists')
+    else:
+        os.mkdir('models')
     if url is None:
         print('Model not in gdrive')
         return None
