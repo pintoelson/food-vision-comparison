@@ -2,6 +2,7 @@ import PIL.Image as Image
 import torch
 from model_architecture import Food101_V0, Food101_V1, Food101_V2, Food101_V3
 from torchvision import transforms
+from model_downloader import download_model
 
 def preprocess_image(image):
     img_size = 224
@@ -125,7 +126,7 @@ def get_confidence(logits: torch.Tensor) -> float:
     return confidence*100
 
 def predict_V0(processed_image):
-    # device = "cpu"
+    download_model('model_V0')
     model = Food101_V0(3*224*224, 101, 1024)
     model.load_state_dict(torch.load('models/model_V0.pth', map_location=torch.device('cpu')))
     model.eval()
@@ -139,39 +140,39 @@ def predict_V0(processed_image):
     
 
 def predict_V1(processed_image):
-    device = "cpu"
-    model = Food101_V1(3, 32, 101).to(device)
-    model.load_state_dict(torch.load('models/model_V1.pth'))
+    download_model('model_V1')
+    model = Food101_V1(3, 32, 101)
+    model.load_state_dict(torch.load('models/model_V1.pth', map_location='cpu'))
     model.eval()
 
     with torch.inference_mode():
-        logits = model(torch.unsqueeze(processed_image, 0).to(device))
+        logits = model(torch.unsqueeze(processed_image, 0))
         confidence = get_confidence(logits)
         label = logits.argmax(dim=1)
         # print(label)
         return label[0], confidence
     
 def predict_V2(processed_image):
-    device = "cuda" if torch.cuda.is_available() else "cpu"
-    model = Food101_V2.to(device)
-    model.load_state_dict(torch.load('models/model_V2.pth'))
+    download_model('model_V2')
+    model = Food101_V2
+    model.load_state_dict(torch.load('models/model_V2.pth', map_location='cpu'))
     model.eval()
 
     with torch.inference_mode():
-        logits = model(torch.unsqueeze(processed_image, 0).to(device))
+        logits = model(torch.unsqueeze(processed_image, 0))
         confidence = get_confidence(logits)
         label = logits.argmax(dim=1)
         # print(label)
         return label[0], confidence
 
 def predict_V3(processed_image):
-    device = "cuda" if torch.cuda.is_available() else "cpu"
-    model = Food101_V3.to(device)
-    model.load_state_dict(torch.load('models/model_V3.pth'))
+    download_model('model_V3')
+    model = Food101_V3
+    model.load_state_dict(torch.load('models/model_V3.pth', map_location='cpu'))
     model.eval()
 
     with torch.inference_mode():
-        logits = model(torch.unsqueeze(processed_image, 0).to(device))
+        logits = model(torch.unsqueeze(processed_image, 0))
         confidence = get_confidence(logits)
         label = logits.argmax(dim=1)
         # print(label)

@@ -32,9 +32,10 @@ V3_column, V2_column, V1_column, V0_column = st.columns(4)
 with V3_column:
     if st.button('Predict with Model V3'):
         if preprocessed_image != None:
-            label, confidence = predict_V3(preprocessed_image)
+            with st.spinner('Wait for it...'):
+                label, confidence = predict_V3(preprocessed_image)
             food = label_to_food(label)
-            st.write(f'Predicted {food} with a confidence of {confidence: .4f}')
+            st.success(f'Predicted {food} with a confidence of {confidence: .4f}')
         else:
             st.write('Please upload an image')
 
@@ -42,9 +43,10 @@ with V3_column:
 with V2_column:
     if st.button('Predict with Model V2'):
         if preprocessed_image != None:
-            label, confidence = predict_V2(preprocessed_image)
+            with st.spinner('Wait for it...'):
+                label, confidence = predict_V2(preprocessed_image)
             food = label_to_food(label)
-            st.write(f'Predicted {food} with a confidence of {confidence: .4f}')
+            st.success(f'Predicted {food} with a confidence of {confidence: .4f}')
         else:
             st.write('Please upload an image')
     
@@ -52,9 +54,10 @@ with V2_column:
 with V1_column:
     if st.button('Predict with Model V1'):
         if preprocessed_image != None:
-            label, confidence = predict_V1(preprocessed_image)
+            with st.spinner('Wait for it...'):
+                label, confidence = predict_V1(preprocessed_image)
             food = label_to_food(label)
-            st.write(f'Predicted {food} with a confidence of {confidence: .4f}')
+            st.success(f'Predicted {food} with a confidence of {confidence: .4f}')
         else:
             st.write('Please upload an image')
 
@@ -62,9 +65,10 @@ with V1_column:
 with V0_column:
     if st.button('Predict with Model V0'):
         if preprocessed_image != None:
-            label, confidence = predict_V0(preprocessed_image)
+            with st.spinner('Wait for it...'):
+                label, confidence = predict_V0(preprocessed_image)
             food = label_to_food(label)
-            st.write(f'Predicted {food} with a confidence of {confidence: .4f}')
+            st.success(f'Predicted {food} with a confidence of {confidence: .4f}')
         else:
             st.write('Please upload an image')
 
