@@ -19,7 +19,7 @@ st.set_page_config(
 )
 
 st.header('Food Vision', divider='rainbow')
-st.write("These models are trained on the famous Food101 dataset. Here is the [link]() with the types of foods the models are able to predict")
+st.write("These models are trained on the famous Food101 dataset. Here is the [link](https://github.com/pintoelson/food-vision-comparison/blob/main/classes.txt) with the types of foods the models are able to predict")
 
 uploaded_file = st.file_uploader("Choose a file", type = ['png', 'jpg'])
 preprocessed_image = None
