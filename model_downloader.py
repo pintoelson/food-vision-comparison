@@ -31,8 +31,8 @@ def get_url(model):
     elif model == 'model_V1':
         return 'https://drive.google.com/file/d/1sNlIGwJC8nmk-naXIgVlaMsy9QraXJ-8/view?usp=drive_link'
     elif model == 'model_V2':
-        return None
+        return 'https://drive.google.com/file/d/1fSxmp-TGouWBx997VyUG7jwalM2V7-Pr/view?usp=drive_link'
     elif model == 'model_V3':
-        return None
+        return 'https://drive.google.com/file/d/11oiw1_Ayk7V3XxenFFjVf12LkdiqCr0I/view?usp=drive_link'
     else:
         return None
