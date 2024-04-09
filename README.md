@@ -1,6 +1,6 @@
 # Food Vision
 
-This is a computer vision project. The goal is to train 4(potentially more in the future) different [models](https://food-vision-comparison.streamlit.app/#model-comparison)on the famous Food101 dataset. 
+This is a computer vision project. The goal is to train 4(potentially more in the future) different [models](https://food-vision-comparison.streamlit.app/#model-comparison) on the famous Food101 dataset. 
 The models are [live](https://food-vision-comparison.streamlit.app/#food-vision) and ready to use.
 
 ## Built With
