@@ -12,7 +12,7 @@ The models are [live](https://food-vision-comparison.streamlit.app/#food-vision)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
 
 ## To-Do
 
